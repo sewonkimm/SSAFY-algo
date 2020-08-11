@@ -17,6 +17,19 @@ public class PrizeTest {
 			
 			answer = dfs(0,0);
 			
+			
+			if(chance % 2 == 0 && answer == 0) answer = Integer.valueOf(st);
+			
+			else if(chance % 2 == 1 && answer == 0){
+				for(int i=0;i<stArray.length;i++) {
+					for(int j=i+1;j<stArray.length;j++) {
+						String temp = stArray[i]; stArray[i] = stArray[j]; stArray[j] = temp;
+							dfs(i,1);
+							temp = stArray[i]; stArray[i] = stArray[j]; stArray[j] = temp;
+					}
+				}
+			}
+			
 			System.out.println("#"+t+" "+answer);
 		}
 	}
@@ -49,16 +62,7 @@ public class PrizeTest {
 			}
 		}
 		
-		if(chance % 2 == 0 && answer == 0) return Integer.valueOf(st);
-		else if(chance % 2 == 1 && answer == 0){
-			for(int i=k;i<stArray.length;i++) {
-				for(int j=i+1;j<stArray.length;j++) {
-						temp = stArray[i]; stArray[i] = stArray[j]; stArray[j] = temp;
-						dfs(i,1);
-						temp = stArray[i]; stArray[i] = stArray[j]; stArray[j] = temp;
-				}
-			}
-		}
+		
 		return answer;
 	}
 }
