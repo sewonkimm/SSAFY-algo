@@ -23,8 +23,8 @@ public class PrizeTest {
 	static int dfs(int k,int count) {
 		String temp;
 		String targetNum = "";
-		
-		if(Integer.valueOf(st) ==0)
+        
+        if(Integer.valueOf(st) ==0)
 			return 0;
 		
 		if(chance == count) {
@@ -53,7 +53,7 @@ public class PrizeTest {
 		else if(chance % 2 == 1 && answer == 0){
 			for(int i=k;i<stArray.length;i++) {
 				for(int j=i+1;j<stArray.length;j++) {
-						temp = stArray[i]; stArray[i] = stArray[j]; stArray[j] = temp;			
+						temp = stArray[i]; stArray[i] = stArray[j]; stArray[j] = temp;
 						dfs(i,1);
 						temp = stArray[i]; stArray[i] = stArray[j]; stArray[j] = temp;
 				}
@@ -62,3 +62,4 @@ public class PrizeTest {
 		return answer;
 	}
 }
+
