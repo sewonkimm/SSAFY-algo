@@ -33,7 +33,6 @@ public class knightTest {
 			ly = sc.nextInt();
 			
 			bfs();
-			
 		}
 	}
 	static void bfs() {
@@ -43,9 +42,6 @@ public class knightTest {
 		while(!queue.isEmpty()) {
 			Move m = queue.poll();
 			
-			if(m.x == 2 && m.y == 1) {
-				System.out.println("hi");
-			}
 			if(m.x == lx && m.y == ly) {
 				queue.clear();
 				System.out.println(m.cnt);
