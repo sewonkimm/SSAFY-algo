@@ -48,48 +48,34 @@ public class washRobotTest {
 		recursive(r,c,d);
 		System.out.println(cnt); //청소하는 칸의 개수
 		
-//		for(int i=0;i<n;i++) {
-//			for(int j=0;j<m;j++) {
-//				System.out.print(map[i][j]);
-//			}
-//			System.out.println();
-//		}
 	}
 	//0-북, 1-동, 2-남, 3-서
 	static void recursive(int x,int y, int dir) { 
-		//System.out.println(x+" "+y+" "+dir);
 		if(map[x][y] ==0) cnt++;
 		map[x][y] = 2;
 		
 		
 		//극혐.. 그냥 d만 써서 4번 반복하는게 나을듯
-		for(int i=0;i<4;i++) {
+		for(int i=0;i<4;i++) { //좌측탐색->없으면좌측회전->좌측탐색->없으면좌측회전 반복
+			//바라보는방향기준 왼쪽칸이 범위에 유효한가? (이 바라보는 방향은 for문에 의해 바뀜)
 			if(x+lx[(dir+4-i)%4]>=0 && y+ly[(dir+4-i)%4]>=0 
 					&& x+lx[(dir+4-i)%4]<n && y+ly[(dir+4-i)%4]<m) {
+				//해당구역이 청소안한곳이면?
 				if(map[x+lx[(dir+4-i)%4]][y+ly[(dir+4-i)%4]] == 0) {
+					//그쪽으로 이동하면서 방향도 바꿔준다
 					recursive(x+lx[(dir+4-i)%4],y+ly[(dir+4-i)%4],(dir+3-i)%4);
+					//청소할 곳 찾았으면 더 반복할 이유없음
 					return;
 				}		
 			}
-		}
+		}		
 		
-//		//지금 바라보는 방향의 좌측
-//		if(x+lx[d]>=0 && y+ly[d]>=0 && x+lx[d]<n && y+ly[d]<m) {
-//			if(map[x+lx[d]][y+ly[d]] == 0) {
-//				recursive(x+lx[d],y+ly[d],(dir+3)%4);
-//				return;
-//			}		
-//		}
-		
-		
+		//사방이 청소되어있거나 벽이면 바라보는 방향 그대로 후진, 후진할 때 벽있으면 그대로 청소 끝(recursive종료)
 		if(x-dx[dir]>=0 && y-dy[dir]>=0 && x-dx[dir]<n && y-dy[dir]<m) {
 			if(map[x-dx[dir]][y-dy[dir]] != 1)
 				recursive(x-dx[dir],y-dy[dir],dir);
 		}	
 	}
-
-
-
 }
 
 
