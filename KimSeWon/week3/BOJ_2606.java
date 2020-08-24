@@ -1,7 +1,3 @@
-// union-find 알고리즘 사용해서 풀어봤는데 틀렸습니다...
-// 예제에 대한 정답은 잘 나오는데 반례를 모르겠네요...!
-// 도움...!
-
 package com.week3;
 
 import java.util.Scanner;
@@ -35,7 +31,7 @@ public class Q2606 {
 		// 1과 연결된 컴퓨터 갯수 구하기
 		int answer = 0;
 		for(int i=2; i<=N; i++) {
-			if(parents[i] == 1)	answer++;	 
+			if(find(i) == 1)	answer++;	 
 		}
 		System.out.println(answer);
 	}
