@@ -5,7 +5,7 @@ import java.util.*;
 
 public class startLinkTest {
 
-	//ë°±íŠ¸ë˜í‚¹ ì‚¬ìš©.. 
+	//¹éÆ®·¡Å· »ç¿ë.. 
 	static int n;
 	static int[][] map;
 	static int[][] select;
@@ -25,8 +25,8 @@ public class startLinkTest {
 				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		//nì€ ì§ìˆ˜, n/2ëª…ìœ¼ë¡œ ì´ë£¨ì–´ì§„ ë§í¬íŒ€ê³¼ ìŠ¤íƒ€íŠ¸íŒ€, ìµœëŒ€ 20ëª…
-		check = new int[n]; //0ê³¼ 1ì€ ë‹¤ë¥¸íŒ€ n/2ê¹Œì§€ ì„¸ì£¼ì
+		//nÀº Â¦¼ö, n/2¸íÀ¸·Î ÀÌ·ç¾îÁø ¸µÅ©ÆÀ°ú ½ºÅ¸Æ®ÆÀ, ÃÖ´ë 20¸í
+		check = new int[n]; //0°ú 1Àº ´Ù¸¥ÆÀ n/2±îÁö ¼¼ÁÖÀÚ
 		
 		
 		
@@ -37,13 +37,8 @@ public class startLinkTest {
 	
 	static void dfs(int now, int cnt) {
 		if(cnt == n/2) {
-<<<<<<< HEAD
 			//°è»ê->dfs
 			//¿©±âºÎºĞ Á» ´õ ÁÁÀº ¹æ¹ıÀÌ ÀÖÀ»°Å °°À½(ºñÆ®¸¶½ºÅ·?)
-=======
-			//ê³„ì‚°->dfs
-			//ì—¬ê¸°ë¶€ë¶„ ì¢€ ë” ì¢‹ì€ ë°©ë²•ì´ ìˆì„ê±° ê°™ìŒ(ë¹„íŠ¸ë§ˆìŠ¤í‚¹?)
->>>>>>> 5eec4767b3964c0fac451f9dc07d3a1d62dc9d41
 			select = new int[n][n];
 			
 			int start = 0;
@@ -67,8 +62,8 @@ public class startLinkTest {
 			return;
 		}
 		
-		//ë°±íŠ¸ë˜í‚¹
-		for(int i=now; i<n; i++) { //ì—°ì‚°ìˆ˜ ì¤„ì´ê¸°ìœ„í•´ì„œ now í™œìš©
+		//¹éÆ®·¡Å·
+		for(int i=now; i<n; i++) { //¿¬»ê¼ö ÁÙÀÌ±âÀ§ÇØ¼­ now È°¿ë
 			check[i] = 1;
 			dfs(i+1,cnt+1);
 			check[i] = 0;
