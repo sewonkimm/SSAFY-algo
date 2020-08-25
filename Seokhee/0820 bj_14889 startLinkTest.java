@@ -37,8 +37,8 @@ public class startLinkTest {
 	
 	static void dfs(int now, int cnt) {
 		if(cnt == n/2) {
-			//계산->비트마스킹
-			//여기부분 좀 더 좋은 방법이 있을거 같음
+			//계산->dfs
+			//여기부분 좀 더 좋은 방법이 있을거 같음(비트마스킹?)
 			select = new int[n][n];
 			
 			int start = 0;
@@ -53,16 +53,7 @@ public class startLinkTest {
 						link+=map[i][j];
 					}
 				}
-			}
-			
-//			for(int i=0;i<n;i++) {
-//				for(int j=0;j<n;j++) {
-//					if(select[i][j] == 1)
-//						
-//					else if(select[i][j] == 2)
-//						
-//				}
-//			}
+			}			
 			
 			int result = (int)Math.abs(start-link);
 			if(min>result)
