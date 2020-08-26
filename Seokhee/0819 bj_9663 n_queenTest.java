@@ -24,17 +24,19 @@ public class n_queenTest {
 			return;
 		}
 
+		
+		//백트래킹!! 중요 ! 조건에 따라 줄마다 1개씩만 설치하는 방법으로 경우의 수를 줄이자
 		for(int j=0;j<n;j++) {
 			if(queenCheck(q,j) && (map[q][j] == 0)) {
 				map[q][j] = 1;
 				dfs(q+1);
 				map[q][j] = 0;
 			}
-		}
-		
+		}	
 		
 	}
 	
+	//8방으로 뻗어가면서(while) 퀸이 있나 체크!
 	static boolean queenCheck(int x,int y) {	
 		for(int i=0;i<8;i++) {
 			int nx = x+dx[i];
