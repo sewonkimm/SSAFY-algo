@@ -57,8 +57,8 @@ public class trainTest {
 		for(int i=1;i<=n;i++) {
 			for(int j=0;j<cnt;j++) {
 				if(train[i] == trainCopy[j]) { //통과명단에 좌석이 같은 기차가 있으면 해당 기차패스를 false하고 해당 기차탐색 for문 종료 
-					j=cnt; 
 					trainPass[i] = false;
+					break;
 				}	
 			}
 			if(trainPass[i]==true) { //기차패스가 true일 경우 통과명단에 넣어주고 통과 기차수 올려주기
