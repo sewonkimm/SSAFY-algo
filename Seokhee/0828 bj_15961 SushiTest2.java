@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
-public class SushiTest {
+public class SushiTest2 {
 
+	//<초밥 개선판> -> 큐 없어도되서 약간 고침! 메모리절약, 시간단축
 	//회전초밥 백준 15961, 2531
-	//큐를 사용해서 풀었는데 이래도 메모리를 20만이나 잡아먹는다
 	//더 좋은 방법이 있을까?
 	static int n,d,k,c;
 	static int[] sushiAll;
@@ -20,7 +20,6 @@ public class SushiTest {
 		
 		c = Integer.parseInt(st.nextToken()); 
 
-		Deque<Integer> deque= new ArrayDeque<>();
 
 		int cnt = 0;
 		int result = 0;
@@ -36,21 +35,21 @@ public class SushiTest {
 				cnt++;
 			}
 			sushiChoice[num]++;
-			deque.addLast(num);
 			
-			result = Math.max(result, cnt);
+			if(sushiChoice[c] == 0) { 
+				result = Math.max(result,cnt+1);
+			} 
+			else result = Math.max(result,cnt);
 		}
 		
-		for(int i=0;i<n-1;i++) { //맨 앞 꺼내고 맨 뒤 채우고
-			int nowOutput = deque.pollFirst();
+		for(int i=0;i<n;i++) { //맨 앞 꺼내고 맨 뒤 채우고
+			int nowOutput = sushiAll[i];
 			sushiChoice[nowOutput]--;
 			if((sushiChoice[nowOutput]) == 0) { //뺀 초밥이 0개가 되면 초밥종류의 개수 -1
 				cnt--;
 			}
 			
 			int nowInput = sushiAll[(i+k)%n];
-			deque.addLast(nowInput);
-			
 			sushiChoice[nowInput]++;
 			if((sushiChoice[nowInput])==1) { //더한 초밥이 1개가 되면 초밥종류의 개수 +1
 				cnt++;
@@ -61,13 +60,9 @@ public class SushiTest {
 				result = Math.max(result,cnt+1);
 			} //있으면 +0 으로 max와 계속 비교, 진행
 			else result = Math.max(result, cnt);
-			
-			
-			
-		}
-		
-		System.out.println(result);
-		
+
+		}	
+		System.out.println(result);	
 	}
 
 }

@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Dfs_BfsTest {
+	//<스터디과제>
 	//백준 1260 dfs와 bfs
 	//여기서 그래프는 무향그래프이다, 간선 입력 시 양 방향 다 연결해주자.
 	static int n;
