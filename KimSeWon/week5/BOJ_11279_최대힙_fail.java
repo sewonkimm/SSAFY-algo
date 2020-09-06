@@ -1,9 +1,3 @@
-/*
-Scanner로 입력받았는데 시간초과...
-그래서 BufferedReader로 바꿨는데도 시간초과...
-Priority Queue 쓰면 안되는 건가요...?
- */
-
 package com.week5;
 
 import java.io.BufferedReader;
@@ -20,7 +14,7 @@ public class BOJ11279_최대힙 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		
-		PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());
 		
 		for(int i=0; i<N; i++) {
 			int x = Integer.parseInt(br.readLine());
@@ -28,14 +22,11 @@ public class BOJ11279_최대힙 {
 			if(x == 0) {
 				if(pq.isEmpty())	System.out.println(0);
 				else { 
-					System.out.println(reversedPQ.poll());
-					pq.poll();
+					System.out.println(pq.poll());
 				}
 			}
 			else {
 				pq.offer(x);
-				reversedPQ = new PriorityQueue<Integer>(pq.size(), Collections.reverseOrder());
-				reversedPQ.addAll(pq);
 			}
 		}
 	}
