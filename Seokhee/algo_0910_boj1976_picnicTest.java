@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class algo_0910_boj1976_picnicTest {
-	//백준 1974 여행가자
+	//백준 1976 여행가자
 	
 	//dp로 해당 마을에서 다른 마을에 갈 수 있는 길이 있는지 (어디를 거쳤든)체크를 해서 두번 계산 안하기로 하면 편할듯
 	//그 길을 거치는 과정에서 찾은 길을 다 dp에 길이 있다고 넣어주자
