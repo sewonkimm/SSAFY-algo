@@ -45,8 +45,7 @@ public class bj_1260_dfs_bfs {
 		visit[i] = true ;
 		System.out.print(i+" ");
 		for (int j = 1; j <= N; j++) {
-			if(map[i]
-					[j] ==1 && visit[j] == false) {
+			if(map[i][j] ==1 && visit[j] == false) {
 				dfs(j);
 			}
 		}
