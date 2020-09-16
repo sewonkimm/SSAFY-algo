@@ -34,7 +34,7 @@ public class bj_1012_유기농배추 {
 						result++;
 					}
 						
-				}
+				}			
 			}
 			System.out.println(result);
 			
