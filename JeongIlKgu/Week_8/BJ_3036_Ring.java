@@ -1,3 +1,7 @@
+/*
+ * BJ 3036 링
+ */
+
 import java.util.Scanner;
 
 public class BJ_3036_Ring {
