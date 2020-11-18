@@ -35,12 +35,10 @@ public class algo_1117_boj14496_그대그머가되어 {
 			
 			if(a == source) {
 				queue.add(new int[] {b,1});
-				//visited[a][b] = true;
 				visited[b] = true;
 			}
 			if(b == source) {
 				queue.add(new int[] {a,1});
-				//visited[b][a] = true;
 				visited[a] = true;
 			}
 		}
@@ -58,7 +56,6 @@ public class algo_1117_boj14496_그대그머가되어 {
 				return;
 			}
 			for(int i=1;i<=n;i++) {
-				//if(map[now[0]][i] == 1 && visited[now[0]][i] == false) {
 				if(map[now[0]][i] == 1 && visited[i] == false) {
 					//visited[now[0]][i] = true;
 					visited[i] = true;
